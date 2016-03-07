@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Yelp</string>
+    <string name="login_button">Login To Yelp</string>
+    <string name="action_search">Search</string>
+    <string name="error_authenticating_to_yelp">Error using Yelp</string>
+    <string name="instructions">Type in search toolbar to see results</string>
+    <string name="result_empty">Result is empty</string>
+    <string name="end_of_result">End of results</string>
+    <string name="error_quering">Error - try again</string>
+</resources>
