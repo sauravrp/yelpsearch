@@ -227,6 +227,7 @@ public class MainFragment extends BaseFragment
                     {
                         showProgressBar();
                         mResults.clear();
+                        mListViewScrollListener.reset(0, true);
                         mAdapter.notifyDataSetChanged();
                     }
                     mQuery = query;
@@ -249,6 +250,8 @@ public class MainFragment extends BaseFragment
     public void onResume()
     {
         super.onResume();
+
+        mListViewScrollListener.reset(0, true);
 
         if (mQuery == null)
         {
