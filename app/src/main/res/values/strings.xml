@@ -7,4 +7,5 @@
     <string name="result_empty">Result is empty</string>
     <string name="end_of_result">End of results</string>
     <string name="error_quering">Error - try again</string>
+    <string name="error_network">Internet connection not found</string>
 </resources>

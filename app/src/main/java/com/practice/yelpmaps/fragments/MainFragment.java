@@ -19,7 +19,6 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
-import com.practice.yelpmaps.BuildConfig;
 import com.practice.yelpmaps.R;
 import com.practice.yelpmaps.fragments.common.BaseFragment;
 import com.practice.yelpmaps.model.SearchEntry;
@@ -29,7 +28,6 @@ import com.practice.yelpmaps.network.NetworkManager;
 import com.practice.yelpmaps.ui.EndlessRecyclerOnScrollListener;
 import com.practice.yelpmaps.ui.SearchResultsAdapter;
 import com.practice.yelpmaps.util.NetworkUtils;
-import com.squareup.picasso.Picasso;
 import com.yelp.clientlib.entities.SearchResponse;
 
 import java.sql.SQLException;
@@ -154,12 +152,7 @@ public class MainFragment extends BaseFragment
     {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        mAdapter = new SearchResultsAdapter(getActivity(), mResults);
-
-        if (BuildConfig.DEBUG)
-        {
-            Picasso.with(getActivity()).setIndicatorsEnabled(true);
-        }
+        mAdapter = new SearchResultsAdapter(mResults);
     }
 
     private void showProgressBar()
@@ -294,6 +287,7 @@ public class MainFragment extends BaseFragment
             if (entry == null)
             {
                 Log.d(TAG, "No cached entry found for " + key);
+                Toast.makeText(getActivity(), R.string.error_network, Toast.LENGTH_LONG).show();
             }
             else
             {

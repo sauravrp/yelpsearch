@@ -1,14 +1,14 @@
 package com.practice.yelpmaps.ui;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.practice.yelpmaps.R;
 import com.practice.yelpmaps.model.SearchResult;
-import com.squareup.picasso.Picasso;
+import com.practice.yelpmaps.util.DisplayUtils;
 
 import java.util.List;
 
@@ -17,14 +17,10 @@ import java.util.List;
  */
 public class SearchResultsAdapter extends RecyclerView.Adapter<BusinessResultsViewHolder>
 {
-
-    private Context mContext;
-
     List<SearchResult> mResults;
 
-    public SearchResultsAdapter(Context context, List<SearchResult> results)
+    public SearchResultsAdapter(List<SearchResult> results)
     {
-        mContext = context;
         mResults = results;
     }
 
@@ -50,10 +46,7 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<BusinessResultsVi
 //                    Log.d(TAG, "result id = " + result.id() + " , name = " + result.name());
 //                    Log.d(TAG, "Loading image url = " + result.imageUrl());
 
-                Picasso.with(mContext).load(result.getImageUrl())
-                        .placeholder(android.R.drawable.presence_offline)
-                        .error(android.R.drawable.stat_notify_error)
-                        .into(holder.mImageView);
+                ImageLoader.getInstance().displayImage(result.getImageUrl(), holder.mImageView);
             }
         }
     }
