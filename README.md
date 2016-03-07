@@ -17,5 +17,6 @@ Used Universal Image Loader for caching images
 OrmLite for caching in database
 
 Known problems:
-No support on rotation
-Potential issues with reading, writing, updating db using main thread. Only one entry is being written/read at a time so it should behave fine for now. Also, yelp json responses are copied over to another custom model object class to reduce json overhead on storing/retrieveing etc
+- No support on rotation
+- Potential issues with reading, writing, updating db using main thread. Only one entry is being written/read at a time so it should behave fine for now. Also, yelp json responses are copied over to another custom model object class to reduce json overhead on storing/retrieveing etc
+- Location hardcoded to Austin
